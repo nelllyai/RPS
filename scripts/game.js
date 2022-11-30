@@ -15,21 +15,25 @@
       player: 0,
       computer: 0,
     };
-    
+
     const eng = lang === 'ENG' || lang === 'EN';
     const figures = eng ? FIGURES_ENG : FIGURES_RUS;
 
     return function start() {
       const random = getRandomIntInclusive(0, 2);
       const computerChoice = figures[random];
-      const text = eng ? prompt("Rock, paper or scissors?") : prompt("Камень, ножницы или бумага?");
+      const text = eng ?
+        prompt('Rock, paper or scissors?') :
+        prompt('Камень, ножницы или бумага?');
       const playerChoice = figures.find(elem => elem.startsWith(text));
 
       if (text === null) {
-        const escape = eng ? confirm('Do you really want to escape?') : confirm('Вы точно хотите завершить игру?');
+        const escape = eng ?
+          confirm('Do you really want to escape?') :
+          confirm('Вы точно хотите завершить игру?');
         if (escape) {
           if (eng) {
-            alert(`Computer scores: ${result.computer}\nPlayer scores: ${result.player}`);
+            alert(`Computer: ${result.computer}\nPlayer: ${result.player}`);
           } else {
             alert(`Компьютер: ${result.computer}\nИгрок: ${result.player}`);
           }
@@ -92,5 +96,5 @@
     };
   };
 
-  window.RPS = game;
+  window.rps = game;
 })();
